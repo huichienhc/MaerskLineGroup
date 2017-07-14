@@ -1,0 +1,69 @@
+﻿@model IEnumerable<MaerskLineGroup.Models.Transportation>
+
+@{
+    ViewBag.Title = "Maersk Line - Transportations";
+}
+
+<h2>List of Transportations</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Container.ContainerName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Ship.ShipName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Shipyard.ShipyardName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Shipyard1.ShipyardName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ArrivalTime)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DepartureTime)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Price)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Container.ContainerName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Ship.ShipName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Shipyard.ShipyardName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Shipyard1.ShipyardName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ArrivalTime)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DepartureTime)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Price)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.TransportationID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.TransportationID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.TransportationID })
+        </td>
+    </tr>
+}
+
+</table>
